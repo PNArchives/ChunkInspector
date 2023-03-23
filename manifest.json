@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§6Chunk Inspector",
+    "description": "Chunk Inspector\n\n§gCreator: Github@yechentide\n§gDownload link: https://github.com/yechentide/ChunkInspector",
+    "uuid": "3be0f848-3bc0-4ca6-afca-d29ede7c3743",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 19, 0]
+  },
+  "modules": [
+    {
+      "description": "CS",
+      "type": "resources",
+      "uuid": "cce40c13-cfcc-4742-85be-8b697f00da0a",
+      "version": [1, 0, 0]
+    }
+  ]
+}

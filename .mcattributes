@@ -1,0 +1,2 @@
+diagnostic.disable.resourcepack.anim_or_controller.missing=true
+diagnostic.disable.minecraft.animation.unused=true
