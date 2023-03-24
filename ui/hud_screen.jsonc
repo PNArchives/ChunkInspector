@@ -1,0 +1,36 @@
+// Add Hud Elements Tutorial: https://wiki.bedrock.dev/json-ui/add-hud-elements.html
+{
+  "chunk_inspector_map": {
+    "type": "custom",
+    "renderer": "hud_player_renderer",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "size": [0, 0]
+  },
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "chunk_inspector_map@chunk_inspector_map": {
+              "controls": [
+                {
+                  "chunk_inspector_map2": {
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "renderer": "live_player_renderer",
+                    "size": [14, 14],
+                    "offset": [665, 105],
+                    "type": "custom"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
