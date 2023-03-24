@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.edge_b": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.edge_b",
+      "textures": ["Texture.edge"]
+    },
+    "controller.render.edge_l": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.edge_l",
+      "textures": ["Texture.edge"]
+    },
+    "controller.render.edge_r": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.edge_r",
+      "textures": ["Texture.edge"]
+    },
+    "controller.render.edge_t": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.edge_t",
+      "textures": ["Texture.edge"]
+    }
+  }
+}

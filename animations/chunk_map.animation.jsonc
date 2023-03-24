@@ -1,0 +1,50 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.chunk_map": {
+      "loop": true,
+      "bones": {
+        "chunk_bg_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "marker_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "corner_lb_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "corner_lt_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "corner_rb_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "corner_rt_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "edge_b_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "edge_l_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "edge_r_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        },
+        "edge_t_bone": {
+          "rotation": [0, 0, 0],
+          "scale": [1.0, 1.0, 1.0]
+        }
+      }
+    }
+  }
+}

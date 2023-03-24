@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.corner_lb": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.corner_lb",
+      "textures": ["Texture.corner"]
+    },
+    "controller.render.corner_lt": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.corner_lt",
+      "textures": ["Texture.corner"]
+    },
+    "controller.render.corner_rb": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.corner_rb",
+      "textures": ["Texture.corner"]
+    },
+    "controller.render.corner_rt": {
+      "materials": [{ "*": "Material.default" }],
+      "geometry": "Geometry.corner_rt",
+      "textures": ["Texture.corner"]
+    }
+  }
+}

@@ -14,13 +14,27 @@
       },
       "textures": {
         "default": "textures/entity/steve",
-        "cape": "textures/entity/cape_invisible"
+        "cape": "textures/entity/cape_invisible",
         // default items above
+        "chunk_bg": "textures/chunk/chunk_bg",
+        "marker": "textures/chunk/marker",
+        "corner": "textures/chunk/corner",
+        "edge": "textures/chunk/edge"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
-        "cape": "geometry.cape"
+        "cape": "geometry.cape",
         // default items above
+        "chunk_bg": "geometry.chunk_bg",
+        "marker": "geometry.marker",
+        "corner_lb": "geometry.corner",
+        "corner_lt": "geometry.corner",
+        "corner_rb": "geometry.corner",
+        "corner_rt": "geometry.corner",
+        "edge_b": "geometry.edge",
+        "edge_l": "geometry.edge",
+        "edge_r": "geometry.edge",
+        "edge_t": "geometry.edge"
       },
       "scripts": {
         "scale": "0.9375",
@@ -41,12 +55,34 @@
           "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
           "variable.hand_bob = query.life_time < 0.01 ? 0.0 : variable.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
           "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
-          "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;"
+          "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
           // default items above
+          "variable.chunk_x  = math.abs(math.floor( query.position(0)/16 ));",
+          "variable.chunk_x1 = math.mod(variable.chunk_x, 10);",
+          "variable.chunk_x2 = math.floor(variable.chunk_x / 10);",
+          "variable.chunk_x3 = math.floor(variable.chunk_x / 100);",
+          "variable.chunk_x4 = math.floor(variable.chunk_x / 1000);",
+
+          "variable.chunk_y  = math.abs(math.floor( query.position(1)/16 ));",
+          "variable.chunk_y1 = math.mod(variable.chunk_y, 10);",
+          "variable.chunk_y2 = math.floor(variable.chunk_y / 10);",
+
+          "variable.chunk_z  = math.abs(math.floor( query.position(2)/16 ));",
+          "variable.chunk_z1 = math.mod(variable.chunk_z, 10);",
+          "variable.chunk_z2 = math.floor(variable.chunk_z / 10);",
+          "variable.chunk_z3 = math.floor(variable.chunk_z / 100);",
+          "variable.chunk_z4 = math.floor(variable.chunk_z / 1000);",
+
+          "variable.is_on_top_edge    = math.mod(math.abs(query.position(2)), 16) == 0;",
+          "variable.is_on_bottom_edge = query.position(2) >= 0 ? math.mod(query.position(2), 16) == 15 : math.mod(-query.position(2), 16) == 1;",
+          "variable.is_on_left_edge   = math.mod(math.abs(query.position(0)), 16) == 0;",
+          "variable.is_on_right_edge  = query.position(0) >= 0 ? math.mod(query.position(0), 16) == 15 : math.mod(-query.position(0), 16) == 1;"
         ],
         "animate": [
-          "root"
+          "root",
           // default items above
+          // "chunk_pos",
+          "chunk_map"
         ]
       },
       "animations": {
@@ -101,16 +137,28 @@
         "shield_block_main_hand": "animation.player.shield_block_main_hand",
         "shield_block_off_hand": "animation.player.shield_block_off_hand",
         "blink": "controller.animation.persona.blink",
-		    "tooting_goat_horn": "animation.humanoid.tooting_goat_horn"
+		    "tooting_goat_horn": "animation.humanoid.tooting_goat_horn",
         // default items above
+        // "chunk_pos": "animation.player.chunk_pos",
+        "chunk_map": "animation.player.chunk_map"
       },
       "render_controllers": [
         { "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator" },
         { "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator" },
         { "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator" },
         { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator" },
-        { "controller.render.player.map": "variable.map_face_icon" }
+        { "controller.render.player.map": "variable.map_face_icon" },
         // default items above
+        { "controller.render.chunk_bg": "query.is_alive && query.is_in_ui" },
+        { "controller.render.marker": "query.is_alive && query.is_in_ui" },
+        { "controller.render.corner_lb": "query.is_alive && query.is_in_ui && variable.is_on_left_edge && variable.is_on_bottom_edge" },
+        { "controller.render.corner_lt": "query.is_alive && query.is_in_ui && variable.is_on_left_edge && variable.is_on_top_edge" },
+        { "controller.render.corner_rb": "query.is_alive && query.is_in_ui && variable.is_on_right_edge && variable.is_on_bottom_edge" },
+        { "controller.render.corner_rt": "query.is_alive && query.is_in_ui && variable.is_on_right_edge && variable.is_on_top_edge" },
+        { "controller.render.edge_b": "query.is_alive && query.is_in_ui && variable.is_on_bottom_edge" },
+        { "controller.render.edge_l": "query.is_alive && query.is_in_ui && variable.is_on_left_edge" },
+        { "controller.render.edge_r": "query.is_alive && query.is_in_ui && variable.is_on_right_edge" },
+        { "controller.render.edge_t": "query.is_alive && query.is_in_ui && variable.is_on_top_edge" }
       ],
       "enable_attachables": true
     }
